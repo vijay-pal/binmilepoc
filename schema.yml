@@ -1,0 +1,356 @@
+openapi: 3.0.2
+info:
+  title: ''
+  version: ''
+paths:
+  /api/v1/department/{id}:
+    get:
+      operationId: retrieveDepartment
+      description: Methods are allow to invoke multiple methods of REST, like
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this departments.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Department'
+          description: ''
+      tags:
+      - api
+    put:
+      operationId: updateDepartment
+      description: Methods are allow to invoke multiple methods of REST, like
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this departments.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Department'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Department'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Department'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Department'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateDepartment
+      description: Methods are allow to invoke multiple methods of REST, like
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this departments.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Department'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Department'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Department'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Department'
+          description: ''
+      tags:
+      - api
+  /api/v1/department/list:
+    get:
+      operationId: listDepartments
+      description: 'The method allow you to retrieve a list of data by GET method,
+
+        at a time this returns 20 record in the list, we can get next 20 by page passing
+        page=number in request.'
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Department'
+          description: ''
+      tags:
+      - api
+  /api/v1/employee/{id}:
+    get:
+      operationId: retrieveEmployee
+      description: The class allow to invoke multiple methods of REST, like
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this employee.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Employee'
+          description: ''
+      tags:
+      - api
+    put:
+      operationId: updateEmployee
+      description: The class allow to invoke multiple methods of REST, like
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this employee.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Employee'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Employee'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Employee'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Employee'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateEmployee
+      description: The class allow to invoke multiple methods of REST, like
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this employee.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Employee'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Employee'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Employee'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Employee'
+          description: ''
+      tags:
+      - api
+  /api/v1/employee/list:
+    get:
+      operationId: listEmployees
+      description: 'The method allow you to retrieve a list of data by GET method,
+
+        at a time this returns 20 record in the list, we can get next 20 by page passing
+        page=number in request.'
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Employee'
+          description: ''
+      tags:
+      - api
+  /api/v1/department/:
+    post:
+      operationId: createDepartment
+      description: The class Allow to create a department record by the POST method.
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Department'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Department'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Department'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Department'
+          description: ''
+      tags:
+      - api
+  /api/v1/employee/:
+    post:
+      operationId: createEmployee
+      description: The class Allow to create an employee record by the POST method.
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Employee'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Employee'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Employee'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Employee'
+          description: ''
+      tags:
+      - api
+components:
+  schemas:
+    Department:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+      required:
+      - name
+    Employee:
+      type: object
+      properties:
+        first_name:
+          type: string
+          maxLength: 50
+        last_name:
+          type: string
+          nullable: true
+          maxLength: 50
+        birthday:
+          type: string
+          format: date
+          nullable: true
+        department:
+          type: integer
+        gender:
+          enum:
+          - M
+          - F
+          type: string
+        hire_date:
+          type: string
+          format: date
+          readOnly: true
+        job_title:
+          type: string
+          maxLength: 50
+        email:
+          type: string
+        extension:
+          type: string
+          nullable: true
+          maxLength: 5
+        reports_to:
+          type: integer
+          nullable: true
+        salary:
+          type: integer
+          maximum: 4294967295
+          format: int64
+          minimum: 0
+      required:
+      - first_name
+      - department
+      - gender
+      - job_title
